@@ -1,1 +1,55 @@
+gcc -g p7original.c
+ ./a.out
+Enter the base, altitude of a triangle:
+4
+5
+The area of triangle with base = 4.000000 and altitude = 5.000000 is 10.000000
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x877: file p7original.c, line 28.
+(gdb) r
+Starting program: /home/runner/ppa-IA2-practice2-2/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p7original.c:28
+28  {
+(gdb) n
+29    triangle t = input_triangle();
+(gdb) n
+Enter the base, altitude of a triangle:
+4
+5
+30    find_area(&t);
+(gdb) n
+31    output(t);
+(gdb) s
+output (t=...) at p7original.c:24
+24    printf("The area of triangle with base = %f and altitude = %f is %f\n", t.base, t.altitude, t.area);
+(gdb) p t.base
+$1 = 4
+(gdb) p t.altitude
+$2 = 5
+(gdb) p t.area
+$3 = 10
+(gdb) n
+The area of triangle with base = 4.000000 and altitude = 5.000000 is 10.000000
+25  }
+(gdb) n
+main () at p7original.c:32
+32    return 0;
+(gdb) 
