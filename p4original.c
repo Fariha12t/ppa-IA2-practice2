@@ -16,41 +16,34 @@ void input_array(int n, int a[n])
     scanf("%d", &a[i]);
   }
 }
-
-int is_composite(int n)
-{
-  for (int i = 2; i <= n/2; i++)
-  {
-    if (n%i == 0)
-      return 1;
-  }
-  return 0;
-}
-
 int sum_composite_numbers(int n, int a[n])
 {
   int sum = 0;
   for (int i = 0; i < n; i++)
   {
-    if (is_composite(a[i]))
-    {
-      sum += a[i];
+    int t=0;
+    for(int j=2;j<a[i];j++)
+      {
+        if((a[i]%j)==0)
+          t++;
+      }
+    if(t!=0)
+      sum=sum+a[i];
     }
-  }
   return sum;
-}
-
+  }
 void output(int sum)
 {
-  printf("sum is %d\n", sum);
+  printf("%d\n", sum);
 }
 
 int main()
 {
-  int length = input_array_size();
-  int data[length];
-  input_array(length, data);
-  int result = sum_composite_numbers(length, data);
-  output(result);
-  return 0;
+  int n,sum;
+  n=input_array_size();
+  int a[n];
+  input_array(n,a);
+  sum=sum_composite_numbers(n,a);
+  output(sum);
+    return 0;
 }
