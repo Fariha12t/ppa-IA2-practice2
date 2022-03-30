@@ -1,9 +1,8 @@
-gcc -g p6original.c
+ gcc -g p6original.c
  ./a.out
 Enter the string:
 hello
-The reverse of hello is olleh
- gdb a.out
+reverse string is olleh gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
 License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
@@ -20,31 +19,48 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x8e4: file p6original.c, line 41.
+Breakpoint 1 at 0x868: file p6original.c, line 30.
 (gdb) r
 Starting program: /home/runner/ppa-IA2-practice2-2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p6original.c:41
-41  {
+Breakpoint 1, main () at p6original.c:30
+30  {
 (gdb) n
-43    input_string(str);
+32    input_string(a);
 (gdb) n
 Enter the string:
 hello
-45    string_copy(rev_str,str);
+35    b=str_reverse(a);
 (gdb) n
-46    str_reverse(rev_str);
-(gdb) n
-47    output(str, rev_str);
+36    output(a,b);
 (gdb) s
-output (a=0x7fff368be6c0 "hello", reverse_a=0x7fff368be730 "olleh")
-    at p6original.c:37
-37    printf("The reverse of %s is %s\n", a, reverse_a);
+output (a=0x7ffdfdc04dc0 "hello", reverse_a=4) at p6original.c:23
+23    printf("reverse string is ");
 (gdb) n
-The reverse of hello is olleh
-38  }
+24    for(int b=reverse_a;b>=0;b--)
 (gdb) n
-main () at p6original.c:48
-48    return 0;
+25      printf("%c",a[b]);  
+(gdb) n
+24    for(int b=reverse_a;b>=0;b--)
+(gdb) n
+25      printf("%c",a[b]);  
+(gdb) n
+24    for(int b=reverse_a;b>=0;b--)
+(gdb) n
+25      printf("%c",a[b]);  
 (gdb) 
+24    for(int b=reverse_a;b>=0;b--)
+(gdb) 
+25      printf("%c",a[b]);  
+(gdb) 
+24    for(int b=reverse_a;b>=0;b--)
+(gdb) 
+25      printf("%c",a[b]);  
+(gdb) 
+24    for(int b=reverse_a;b>=0;b--)
+(gdb) 
+27  }
+(gdb) 
+main () at p6original.c:37
+37    return 0;
