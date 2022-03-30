@@ -1,11 +1,9 @@
 #include <stdio.h>
-
 void input_string(char *a)
 {
   printf("Enter the string:\n");
   scanf("%s", a);
 }
-
 int str_reverse(char *a)
 {
   int b;
@@ -13,7 +11,6 @@ int str_reverse(char *a)
     {
       b=i;
     }
- 
   return b;
 }
 

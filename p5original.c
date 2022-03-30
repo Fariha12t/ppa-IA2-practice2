@@ -20,7 +20,7 @@ int gcd(int a,int b)
 }
 void output(int a,int b,int hcf)
 {
-  printf("hcf of %d and %d is %d",a,b,hcf);
+  printf("gcd of %d and %d is %d",a,b,hcf);
 }
 int main()
 {

@@ -1,32 +1,34 @@
 #include <stdio.h>
-
-typedef struct _triangle
+struct _triangle
 {
   float base, altitude, area;
-} triangle;
+};
+
+typedef struct _triangle Triangle;
 
 
-triangle input_triangle()
+Triangle input_triangle()
 {
-  triangle t;
+  Triangle t;
   printf("Enter the base, altitude of a triangle:\n");
   scanf("%f%f", &t.base, &t.altitude);
   return t;
 }
 
-void find_area(triangle *t)
+void find_area(Triangle *t)
 {
   t->area = 0.5 * t->base * t->altitude;
 }
 
-void output(triangle t)
+void output(Triangle t)
 {
   printf("The area of triangle with base = %f and altitude = %f is %f\n", t.base, t.altitude, t.area);
 }
 
 int main()
 {
-  triangle t = input_triangle();
+  Triangle t;
+  t= input_triangle();
   find_area(&t);
   output(t);
   return 0;
